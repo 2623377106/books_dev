@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap 实例 - 基本的表格</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<table class="table">
+    <caption>基本的表格布局</caption>
+    <thead>
+    <tr>
+        <th>作者</th>
+        <th>封面</th>
+        <th>书名</th>
+        <th>价格</th>
+        <th>添加时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $dat as $val}
+    <tr>
+        <td>{$val.name}</td>
+        <td><img src="/uploads/{$val.file}" alt=""></td>
+        <td>{$val.article}</td>
+        <td>
+            <a href="order?order=price">排序</a>
+            {$val.price}
+        </td>
+        <td>
+            <a href="order?order=created_at">排序</a>
+            {$val.created_at}
+        </td>
+    </tr>
+    {/foreach}
+    </tbody>
+</table>
+{$dat->render()}
+</body>
+</html>
